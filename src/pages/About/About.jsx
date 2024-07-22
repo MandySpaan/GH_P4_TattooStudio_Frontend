@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./About.css";
 
 export const About = () => {
   const [services, setServices] = useState([]);
@@ -18,18 +19,19 @@ export const About = () => {
   }, []);
 
   return (
-    <div>
+    <div className="about-page">
+      <h1>We offer the following services</h1>
       {services.length === 0 ? (
         <p>Loading...</p>
       ) : (
-        <ul>
+        <div className="services-collection">
           {services.map((service) => (
-            <li key={service.id}>
-              {service.serviceName} <br />
-              {service.description}
-            </li>
+            <div className="service-box" key={service.id}>
+              <div className="service">{service.serviceName}</div>
+              <div className="description">{service.description}</div>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
