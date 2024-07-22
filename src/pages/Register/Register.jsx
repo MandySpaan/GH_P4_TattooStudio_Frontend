@@ -20,8 +20,6 @@ export const Register = () => {
 
   async function register() {
     try {
-      console.log(credentials);
-
       const response = await registerUser(credentials);
 
       if (response.success) {
@@ -45,14 +43,14 @@ export const Register = () => {
         <input
           type="text"
           name="email"
-          id=""
+          id="email"
           placeholder="Email"
           onChange={handleChange}
         />
         <input
           type="password"
           name="password"
-          id=""
+          id="password"
           placeholder="Password"
           onChange={handleChange}
         />
