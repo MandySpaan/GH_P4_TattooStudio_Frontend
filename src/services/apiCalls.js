@@ -1,5 +1,10 @@
 const URL = "http://localhost:3000";
 
+export const getServices = async () => {
+  const response = await fetch(`${URL}/api/services`);
+  return await response.json();
+};
+
 export const registerUser = async (credentials) => {
   const request = await fetch(`${URL}/api/auth/register`, {
     method: "POST",

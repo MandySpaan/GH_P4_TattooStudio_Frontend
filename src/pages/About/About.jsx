@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./About.css";
+import { getServices } from "../../services/apiCalls";
 
 export const About = () => {
   const [services, setServices] = useState([]);
@@ -7,9 +8,8 @@ export const About = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/services");
-        const fetchedData = await response.json();
-        setServices(fetchedData.data);
+        const response = await getServices();
+        setServices(response.data);
       } catch (error) {
         console.error("Error fetching services:", error);
       }
