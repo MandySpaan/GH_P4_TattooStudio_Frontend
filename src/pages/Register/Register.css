@@ -41,6 +41,7 @@ input[type="button"] {
   font-size: 1em;
   cursor: pointer;
   margin-top: 1.3em;
+  margin-bottom: 0.5em;
 }
 
 input[type="button"]:hover {

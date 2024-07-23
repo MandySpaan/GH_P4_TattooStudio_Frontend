@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { loginUser } from "../../services/apiCalls";
 import { jwtDecode } from "jwt-decode";
+import "./Login.css";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -40,28 +41,29 @@ export const Login = () => {
 
   return (
     <>
-      <div>
-        <h1>Login</h1>
-        <p>
-          Login or <NavLink to="/register">register</NavLink> if you don't have
-          an account yet
-        </p>
-
-        <input
-          type="text"
-          name="email"
-          id="email"
-          placeholder="Email"
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
-        <input type="button" value="Login" onClick={login} />
+      <div className="login-page">
+        <div className="login-box">
+          <h1>Login</h1>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Email"
+            onChange={handleChange}
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
+          <input type="button" value="Login" onClick={login} />
+          <p>Don't have an account yet?</p>
+          <NavLink id="link" to="/register">
+            Register here
+          </NavLink>
+        </div>
       </div>
     </>
   );
