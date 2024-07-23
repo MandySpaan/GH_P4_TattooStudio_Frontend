@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { loginUser } from "../../services/apiCalls";
+import { jwtDecode } from "jwt-decode";
 
 export const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -8,11 +10,29 @@ export const Login = () => {
   });
 
   function handleChange(e) {
-    console.log("HandleChange");
     setCredentials((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
+  }
+
+  async function login() {
+    try {
+      const response = await loginUser(credentials);
+
+      if (response.success) {
+        const decodedToken = jwtDecode(response.token);
+        const passport = {
+          token: response.token,
+          tokenData: decodedToken,
+        };
+        localStorage.setItem("passport", JSON.stringify(passport));
+      } else {
+        alert(response.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -38,7 +58,7 @@ export const Login = () => {
           placeholder="Password"
           onChange={handleChange}
         />
-        <input type="button" value="Register" />
+        <input type="button" value="Login" onClick={login} />
       </div>
     </>
   );
