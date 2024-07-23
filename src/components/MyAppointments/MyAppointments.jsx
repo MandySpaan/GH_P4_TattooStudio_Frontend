@@ -20,7 +20,7 @@ export const MyAppointments = () => {
       {myAppointments.map((appointment) => (
         <div key={appointment.id}>
           <div>{appointment.appointmentDate}</div>
-          <div>{appointment.serviceId}</div>
+          <div>{appointment.service.serviceName}</div>
         </div>
       ))}
     </div>
