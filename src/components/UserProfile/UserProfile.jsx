@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { getProfile, updateProfile } from "../../services/apiCalls";
 import "./UserProfile.css";
 
@@ -55,6 +55,7 @@ export const UserProfile = () => {
 
   const saveButtonHandler = async () => {
     const response = await updateProfile(editData, passport.token);
+    window.location.reload();
   };
 
   return (
