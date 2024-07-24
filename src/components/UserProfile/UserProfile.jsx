@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getProfile } from "../../services/apiCalls";
+import "./UserProfile.css";
 
 export const UserProfile = () => {
   const [profileData, setProfileData] = useState({
@@ -26,11 +27,18 @@ export const UserProfile = () => {
   }, []);
 
   return (
-    <>
-      <h2>profile</h2>
-      <p>First name:{profileData.firstName} </p>
-      <p>Last name:{profileData.lastName} </p>
-      <p>Email:{profileData.email} </p>
-    </>
+    <div className="userprofile-box">
+      <h2>Profile</h2>
+      <p>First name: {profileData.firstName} </p>
+      <p>Last name: {profileData.lastName} </p>
+      <p>Email: {profileData.email} </p>
+      <input type="button" name="edit" value="Edit" />
+      <input
+        type="button"
+        name="save"
+        value="Save changes"
+        className="hidden"
+      />
+    </div>
   );
 };
