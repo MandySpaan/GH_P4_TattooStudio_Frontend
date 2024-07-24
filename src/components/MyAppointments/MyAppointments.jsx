@@ -29,11 +29,14 @@ export const MyAppointments = () => {
     <div className="myappointment-box">
       <h2>My Appointments</h2>
       {myAppointments.map((appointment) => (
-        <div key={appointment.id}>
-          <div>{formatDate(appointment.appointmentDate)}</div>
-          <div>{appointment.service.serviceName}</div>
+        <div className="appointments-info" key={appointment.id}>
+          <div className="date">{formatDate(appointment.appointmentDate)}</div>
+          <div className="service">{appointment.service.serviceName}</div>
         </div>
       ))}
+      <div className="cancelbutton-container">
+        <input type="button" name="cancel" value="Cancel appointment" />
+      </div>
     </div>
   );
 };
