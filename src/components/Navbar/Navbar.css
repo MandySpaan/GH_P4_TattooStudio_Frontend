@@ -21,6 +21,7 @@ body {
   height: 60px;
   background-color: #fef7e5;
   position: relative;
+  z-index: 2;
 }
 
 .menu-icon {
