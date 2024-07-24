@@ -39,9 +39,39 @@ export const UserProfile = () => {
     <div className="userprofile-box">
       <h2>Profile</h2>
       <div className="profile-info">
-        <p>First name: {profileData.firstName} </p>
-        <p>Last name: {profileData.lastName} </p>
-        <p>Email: {profileData.email} </p>
+        <div className="input-group">
+          <label htmlFor="firstName">First Name</label>
+          <p className={editing ? "hidden" : ""}>{profileData.firstName}</p>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            placeholder={profileData.firstName}
+            className={!editing ? "hidden" : ""}
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="lastName">Last Name</label>
+          <p className={editing ? "hidden" : ""}>{profileData.lastName}</p>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            placeholder={profileData.lastName}
+            className={!editing ? "hidden" : ""}
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="email">Email</label>
+          <p className={editing ? "hidden" : ""}>{profileData.email}</p>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder={profileData.email}
+            className={!editing ? "hidden" : ""}
+          />
+        </div>
       </div>
       <div className="profile-buttons">
         <input
