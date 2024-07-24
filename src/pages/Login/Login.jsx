@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { loginUser } from "../../services/apiCalls";
 import { jwtDecode } from "jwt-decode";
 import "./Login.css";
+import { isTokenValid } from "../../utils/functions";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ export const Login = () => {
           tokenData: decodedToken,
         };
         localStorage.setItem("passport", JSON.stringify(passport));
+        isTokenValid(decodedToken.exp);
         navigate("/profile");
       } else {
         alert(response.message);
