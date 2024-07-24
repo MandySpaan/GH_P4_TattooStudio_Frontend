@@ -9,6 +9,9 @@ export const UserProfile = () => {
     lastName: "",
     email: "",
   });
+
+  const [editing, setEditing] = useState(false);
+
   const passport = JSON.parse(localStorage.getItem("passport"));
 
   const navigate = useNavigate();
@@ -26,13 +29,24 @@ export const UserProfile = () => {
     }
   }, []);
 
+  const editButtonHandler = () => {
+    setEditing(!editing);
+  };
+
+  useEffect(() => {}, [editing]);
+
   return (
     <div className="userprofile-box">
       <h2>Profile</h2>
       <p>First name: {profileData.firstName} </p>
       <p>Last name: {profileData.lastName} </p>
       <p>Email: {profileData.email} </p>
-      <input type="button" name="edit" value="Edit" />
+      <input
+        type="button"
+        name="edit"
+        value={!editing ? "Edit" : "Cancel"}
+        onClick={editButtonHandler}
+      />
       <input
         type="button"
         name="save"
