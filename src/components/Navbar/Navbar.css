@@ -67,7 +67,7 @@ body {
 }
 
 @media (max-width: 750px) {
-img {
+  .menu-icon > img {
     margin-top: 10px;
     height: 45px;
 }
