@@ -12,7 +12,7 @@
     margin-top: 2em;
     padding: 3em;
     border-radius: 2em;
-  }
+
 
   .profile-info {
     margin: 0.5em;
@@ -22,7 +22,7 @@
   h2 {
     text-align: center;
     margin-top: -0.3em;
-    margin-bottom: 0.3em;
+    margin-bottom: 0.5em;
     color: #333;
   }
 
@@ -55,7 +55,6 @@
   }
 
   .profile-buttons {
-    margin-top: 0.5em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,4 +74,6 @@
 
   input[type="button"]:hover {
     background-color: #727272;
+  }
+
   }

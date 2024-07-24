@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getProfile } from "../../services/apiCalls";
+import { getProfile, updateProfile } from "../../services/apiCalls";
 import "./UserProfile.css";
 
 export const UserProfile = () => {
   const [profileData, setProfileData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+
+  const [editData, setEditData] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -30,10 +36,26 @@ export const UserProfile = () => {
   }, []);
 
   const editButtonHandler = () => {
+    setEditData({
+      firstName: profileData.firstName,
+      lastName: profileData.lastName,
+      email: profileData.email,
+    });
     setEditing(!editing);
   };
 
+  const editInputHandler = (e) => {
+    setEditData({
+      ...editData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   useEffect(() => {}, [editing]);
+
+  const saveButtonHandler = async () => {
+    const response = await updateProfile(editData, passport.token);
+  };
 
   return (
     <div className="userprofile-box">
@@ -48,6 +70,7 @@ export const UserProfile = () => {
             name="firstName"
             placeholder={profileData.firstName}
             className={!editing ? "hidden" : ""}
+            onChange={editInputHandler}
           />
         </div>
         <div className="input-group">
@@ -59,6 +82,7 @@ export const UserProfile = () => {
             name="lastName"
             placeholder={profileData.lastName}
             className={!editing ? "hidden" : ""}
+            onChange={editInputHandler}
           />
         </div>
         <div className="input-group">
@@ -70,6 +94,7 @@ export const UserProfile = () => {
             name="email"
             placeholder={profileData.email}
             className={!editing ? "hidden" : ""}
+            onChange={editInputHandler}
           />
         </div>
       </div>
@@ -85,6 +110,7 @@ export const UserProfile = () => {
           name="save"
           value="Save changes"
           className={!editing ? "hidden" : ""}
+          onClick={saveButtonHandler}
         />
       </div>
     </div>

@@ -56,3 +56,16 @@ export const getMyAppointments = async (token) => {
 
   return await response.json();
 };
+
+export const updateProfile = async (changes, token) => {
+  const response = await fetch(`${URL}/api/users/profile`, {
+    method: "PUT",
+    headers: {
+      "content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(changes),
+  });
+
+  return await response.json();
+};
