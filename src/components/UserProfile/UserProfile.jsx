@@ -38,21 +38,25 @@ export const UserProfile = () => {
   return (
     <div className="userprofile-box">
       <h2>Profile</h2>
-      <p>First name: {profileData.firstName} </p>
-      <p>Last name: {profileData.lastName} </p>
-      <p>Email: {profileData.email} </p>
-      <input
-        type="button"
-        name="edit"
-        value={!editing ? "Edit" : "Cancel"}
-        onClick={editButtonHandler}
-      />
-      <input
-        type="button"
-        name="save"
-        value="Save changes"
-        className="hidden"
-      />
+      <div className="profile-info">
+        <p>First name: {profileData.firstName} </p>
+        <p>Last name: {profileData.lastName} </p>
+        <p>Email: {profileData.email} </p>
+      </div>
+      <div className="profile-buttons">
+        <input
+          type="button"
+          name="edit"
+          value={!editing ? "Edit" : "Cancel"}
+          onClick={editButtonHandler}
+        />
+        <input
+          type="button"
+          name="save"
+          value="Save changes"
+          className={!editing ? "hidden" : ""}
+        />
+      </div>
     </div>
   );
 };
