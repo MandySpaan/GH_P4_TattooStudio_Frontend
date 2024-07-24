@@ -6,6 +6,7 @@ import { Appointments } from "../pages/Appointments/Appointments";
 import { Register } from "../pages/Register/Register";
 import { About } from "../pages/About/About";
 import { Profile } from "../pages/Profile/Profile";
+import { UsersOverview } from "../components/UsersOverview/UsersOverview";
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
         <Route path="/about" element={<About />} />
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/users" element={<UsersOverview />} />
       </Routes>
     </>
   );
