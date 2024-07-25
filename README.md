@@ -11,7 +11,7 @@ This project was made as part of a course Full Stack Developer for GeeksHubs Aca
 
 ## Assignment 📝
 
-GeeksHub gave the following fictive assignment: to create the frontend part of the earlier created backend for a fictional tattoo studio.
+GeeksHub gave the following fictive assignment: to create the frontend part of the earlier created backend for a fictional tattoo studio. You can find the back end project here: [GH_P4_TattooStudio_Backend](https://github.com/MandySpaan/GH_P4_TattooStudio_Backend/blob/main/README.md)
 
 Users will be able to:
 
@@ -94,7 +94,7 @@ You can find the back end project here: [GH_P4_TattooStudio_Backend](https://git
 2. Install dependencies
    `$ npm install --y`
 3. Start Express on the server
-   ```$ npm run dev`
+   `$ npm run dev`
 
 ## Points of Improvement 💡
 
