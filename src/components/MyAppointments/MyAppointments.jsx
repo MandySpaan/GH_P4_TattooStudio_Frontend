@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getMyAppointments } from "../../services/apiCalls";
+import {
+  deleteAppointmentById,
+  getMyAppointments,
+} from "../../services/apiCalls";
 import "./MyAppointments.css";
 
 const formatDate = (isoDate) => {
@@ -25,6 +28,17 @@ export const MyAppointments = () => {
     bringMyAppointments();
   }, [passport.token]);
 
+  const deleteApptHandler = async (e) => {
+    const id = +e.target.name;
+    const response = await deleteAppointmentById(passport.token, id);
+    const remainingAppts = myAppointments.filter((appt) => {
+      if (appt.id !== id) {
+        return appt;
+      }
+    });
+    setMyAppointments(remainingAppts);
+  };
+
   return (
     <div className="myappointment-box">
       <h2>My Appointments</h2>
@@ -32,11 +46,16 @@ export const MyAppointments = () => {
         <div className="appointments-info" key={appointment.id}>
           <div className="date">{formatDate(appointment.appointmentDate)}</div>
           <div className="service">{appointment.service.serviceName}</div>
+          <div className="cancel">
+            <input
+              type="button"
+              value="delete"
+              name={appointment.id}
+              onClick={deleteApptHandler}
+            />{" "}
+          </div>
         </div>
       ))}
-      <div className="cancelbutton-container">
-        <input type="button" name="cancel" value="Cancel appointment" />
-      </div>
     </div>
   );
 };

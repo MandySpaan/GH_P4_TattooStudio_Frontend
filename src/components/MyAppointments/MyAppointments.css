@@ -33,31 +33,26 @@
     font-weight: bold;
   }
 
+  .service {
+    width: 15.5em;
+  }
+
   .cancelbutton-container {
     display: flex;
     justify-content: center;
   }
 
-  .profile-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   input[type="button"] {
-    width: 19em;
     padding: 0.65em;
-    background-color: rgb(80, 80, 80);
-    color: white;
     border: none;
     border-radius: 0.3em;
     font-size: 1em;
     cursor: pointer;
-    margin-top: 2.5em;
   }
 
   input[type="button"]:hover {
-    background-color: #727272;
+    background-color: red;
+    color: white
   }
 
   }
