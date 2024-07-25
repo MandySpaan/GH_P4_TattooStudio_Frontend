@@ -6,7 +6,7 @@ import { Appointments } from "../pages/Appointments/Appointments";
 import { Register } from "../pages/Register/Register";
 import { About } from "../pages/About/About";
 import { Profile } from "../pages/Profile/Profile";
-import { UsersOverview } from "../components/UsersOverview/UsersOverview";
+import { UsersOverview } from "../pages/UsersOverview/UsersOverview";
 
 const AppRoutes = () => {
   return (

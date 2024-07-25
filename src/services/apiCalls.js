@@ -93,3 +93,15 @@ export const deleteAppointmentById = async (token, id) => {
 
   return await response.json();
 };
+
+export const deleteUserById = async (token, id) => {
+  const response = await fetch(`${URL}/api/users/${id}`, {
+    method: "DELETE",
+    headers: {
+      "content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return await response.json();
+};

@@ -52,7 +52,7 @@ export const MyAppointments = () => {
               value="delete"
               name={appointment.id}
               onClick={deleteApptHandler}
-            />{" "}
+            />
           </div>
         </div>
       ))}
