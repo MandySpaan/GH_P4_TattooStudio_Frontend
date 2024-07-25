@@ -11,14 +11,14 @@ export const Profile = () => {
 
   return (
     <div div className="profile-page">
-      <div className={role === 1 ? "" : "hidden"}>
-        <AdminArea />
-      </div>
       <div>
         <UserProfile />
       </div>
       <div>
         <MyAppointments />
+      </div>
+      <div className={role === 1 ? "" : "hidden"}>
+        <AdminArea />
       </div>
     </div>
   );
