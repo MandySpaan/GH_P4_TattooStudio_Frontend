@@ -25,6 +25,7 @@ const BookAppointment = () => {
       const response = await createAppointment(newAppointment, passport.token);
       if (response.success) {
         console.log(response);
+        window.location.reload();
       }
     } catch (error) {
       console.log(error);
