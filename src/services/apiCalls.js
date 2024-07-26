@@ -105,3 +105,19 @@ export const deleteUserById = async (token, id) => {
 
   return await response.json();
 };
+
+export const createAppointment = async (data, token) => {
+  console.log(data, token);
+  data.serviceId = parseInt(data.serviceId);
+  console.log(typeof data.serviceId, " this should read 'number'");
+  const response = await fetch(`${URL}/api/appointments`, {
+    method: "POST",
+    headers: {
+      "content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  });
+
+  return await response.json();
+};
