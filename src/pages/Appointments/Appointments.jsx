@@ -9,7 +9,7 @@ export const Appointments = () => {
   const isLoggedIn = passport && passport.token;
 
   return (
-    <div>
+    <div className="appointments-page">
       {isLoggedIn ? (
         <>
           <BookAppointment />
