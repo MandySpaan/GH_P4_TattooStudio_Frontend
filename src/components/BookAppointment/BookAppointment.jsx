@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createAppointment } from "../../services/apiCalls";
+import "./BookAppointment.css";
 
 const BookAppointment = () => {
   const [newAppointment, setNewAppointment] = useState({
@@ -19,10 +20,6 @@ const BookAppointment = () => {
     });
   };
 
-  useEffect(() => {
-    console.log(newAppointment, typeof newAppointment.serviceId);
-  }, [newAppointment]);
-
   const handleSendAppointment = async () => {
     try {
       const response = await createAppointment(newAppointment, passport.token);
@@ -35,26 +32,29 @@ const BookAppointment = () => {
   };
 
   return (
-    <div>
-      <input
-        type="date"
-        min={todayString}
-        value={newAppointment.appointmentDate}
-        name="appointmentDate"
-        onChange={(e) => inputHandler(e)}
-      />
-
-      <select name="serviceId" onChange={(e) => inputHandler(e)}>
-        <option disable selected hidden>
-          Please Choose...
-        </option>
-        <option value={1}>Personalized Tattoo</option>
-        <option value={2}>Catalogue Tattoo</option>
-        <option value={3}>Restoration and Rejuvenation</option>
-        <option value={4}>Placement of piercings</option>
-        <option value={5}>The shop</option>
-      </select>
-      <button onClick={handleSendAppointment}>Book Appointment</button>
+    <div className="bookappointment-page">
+      <div className="bookappointment-box">
+        <div className="date">
+          <input
+            type="date"
+            min={todayString}
+            value={newAppointment.appointmentDate}
+            name="appointmentDate"
+            onChange={(e) => inputHandler(e)}
+          />
+        </div>
+        <select name="serviceId" onChange={(e) => inputHandler(e)}>
+          <option disable selected hidden>
+            Please Choose...
+          </option>
+          <option value={1}>Personalized Tattoo</option>
+          <option value={2}>Catalogue Tattoo</option>
+          <option value={3}>Restoration and Rejuvenation</option>
+          <option value={4}>Placement of piercings</option>
+          <option value={5}>The shop</option>
+        </select>
+        <button onClick={handleSendAppointment}>Book Appointment</button>
+      </div>
     </div>
   );
 };

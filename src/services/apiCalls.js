@@ -107,9 +107,7 @@ export const deleteUserById = async (token, id) => {
 };
 
 export const createAppointment = async (data, token) => {
-  console.log(data, token);
   data.serviceId = parseInt(data.serviceId);
-  console.log(typeof data.serviceId, " this should read 'number'");
   const response = await fetch(`${URL}/api/appointments`, {
     method: "POST",
     headers: {
