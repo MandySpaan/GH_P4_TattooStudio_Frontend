@@ -5,7 +5,7 @@ import "./Profile.css";
 import AdminArea from "../../components/AdminArea/AdminArea";
 
 export const Profile = () => {
-  const passport = JSON.parse(localStorage.getItem("passport")) || {};
+  const passport = JSON.parse(localStorage.getItem("passport"));
 
   const role = passport.tokenData ? passport.tokenData.role : null;
 
