@@ -4,6 +4,7 @@ import {
   getMyAppointments,
 } from "../../services/apiCalls";
 import "./MyAppointments.css";
+import { NavLink } from "react-router-dom";
 
 const formatDate = (isoDate) => {
   const date = new Date(isoDate);
@@ -56,6 +57,12 @@ export const MyAppointments = () => {
           </div>
         </div>
       ))}
+      <div className={myAppointments.length > 0 ? "hidden" : ""}>
+        <p>
+          You have no appointments yet,{" "}
+          <NavLink to="/appointments">book now</NavLink>.
+        </p>
+      </div>
     </div>
   );
 };
