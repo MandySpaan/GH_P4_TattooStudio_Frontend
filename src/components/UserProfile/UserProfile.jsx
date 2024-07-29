@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getProfile, updateProfile } from "../../services/apiCalls";
 import "./UserProfile.css";
 
@@ -29,7 +29,6 @@ export const UserProfile = () => {
       const bringMyProfile = async () => {
         const response = await getProfile(passport.token);
         setProfileData(response.data);
-        console.log(response);
       };
       bringMyProfile();
     }
@@ -55,7 +54,14 @@ export const UserProfile = () => {
 
   const saveButtonHandler = async () => {
     const response = await updateProfile(editData, passport.token);
-    window.location.reload();
+    if (response.success) {
+      const bringMyProfile = async () => {
+        const response = await getProfile(passport.token);
+        setProfileData(response.data);
+      };
+      bringMyProfile();
+      setEditing(!editing);
+    }
   };
 
   return (

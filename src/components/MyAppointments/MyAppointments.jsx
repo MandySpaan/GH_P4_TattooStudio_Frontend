@@ -24,7 +24,6 @@ export const MyAppointments = () => {
     const bringMyAppointments = async () => {
       const response = await getMyAppointments(passport.token);
       setMyAppointments(response.data);
-      console.log(response);
     };
     bringMyAppointments();
   }, [passport.token]);
