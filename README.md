@@ -11,7 +11,7 @@ This project was made as part of a course Full Stack Developer for GeeksHubs Aca
 
 ## Assignment 📝
 
-GeeksHub gave the following fictive assignment: to create the frontend part of the earlier created backend for a fictional tattoo studio. You can find the backend project here: [GH_P4_TattooStudio_Backend](https://github.com/MandySpaan/GH_P4_TattooStudio_Backend/blob/main/README.md)
+GeeksHub gave the following fictive assignment: to create the frontend part of the earlier created backend for a fictional tattoo studio. You can find the backend project here: [TattooStudio_Backend](https://github.com/MandySpaan/TattooStudio_Backend)
 
 Users will be able to:
 
@@ -61,7 +61,7 @@ Besides there also has to be a view for admins to see and delete users.
 
 ### Backend
 
-You can find the backend project here: [GH_P4_TattooStudio_Backend](https://github.com/MandySpaan/GH_P4_TattooStudio_Backend/blob/main/README.md)
+You can find the backend project here: [TattooStudio_Backend](https://github.com/MandySpaan/TattooStudio_Backend)
 
 1. Clone the repository
    `$ git clone https://github.com/MandySpaan/GH_P4_TattooStudio_Backend`
